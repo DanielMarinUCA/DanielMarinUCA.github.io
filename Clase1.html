@@ -1,0 +1,610 @@
+  <!DOCTYPE html>
+  <html lang="es-ES">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./w3.css">
+  
+  <title> Matemáticas dinámicas</title>
+  
+  <body class="w3-sand">
+  
+ <div class="w3-panel w3-blue">
+  <h1> Matemáticas dinámicas. Curso 24/25</h1>
+</div>
+
+ <div class="w3-panel w3-blue">
+  <h2> 10 de Marzo</h2>
+</div>
+
+ <div class="w3-panel w3-light-blue">
+  <h3> ¿Qué es una página web? </h3>
+</div>
+
+<div class="w3-panel">
+<p> Una página web puede definirse como un fichero electrónico accesible en internet que contiene información en forma de texto, vídeo, etc.
+En general, están escritas utilizando el lenguaje HTML (HyperText Markup Language). A continuación mostraremos podemos crear nuestra propia página web.</p>
+</div>
+
+ <div class="w3-panel w3-light-blue">
+  <h3> Fundamentos de HTML </h3>
+</div>
+
+ <div class="w3-panel w3-light-blue">
+  <h3> Primeros pasos </h3>
+</div>
+
+<div class="w3-panel">
+<p> Para crear un fichero HTML simplemente tenemos que crear un archivo con algún programa similar a <i>Block de Notas</i>, <i>Gedit</i>, </i>Notepad++</i>... y guardarlo con la extensión <i>.html</i>. Notemos que los programas como <i>Microsoft Word</i> no sirven para escribir este tipo de archivos.
+Por defecto, el archivo raíz de una web se llama <i>index</i>.</p>
+
+<p> Comenzamos abriendo nuestro editor y, en un nuevo archivo, escribimos lo siguiente:</p>
+
+
+<div class="w3-card">
+<pre><code>  &lt;!DOCTYPE html&gt;
+  &lt;html lang=&quot;es-ES&quot;&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+
+  &lt;title&gt;T&#xED;tulo de la p&#xE1;gina&lt;/title&gt;
+
+  &lt;body&gt;
+     Cuerpo de la p&#xE1;gina
+  &lt;/body&gt;
+  &lt;/html&gt;
+ </code></pre>
+</div>
+
+Veamos que significa cada línea.
+<ul class="w3-ul">
+	<li><strong><code> &lt;!DOCTYPE html&gt;</code></strong> indica a nuestro navegador que el archivo es, efectivamene un fichero HTML.
+	Si bien esta etiqueta no es obligatoria, su ausencia puede producir errores en la visualización y por tanto, es una buena práctica utilizarla.</li>
+	<li><strong><code> &lt;html lang=&quot;es-ES&quot;&gt;</code></strong> sirve para declarar el idioma en el que está escrito el fichero.
+	Esto es importante tanto para la traducción de nuestra web por parte de los navegadores como para su lectura por medio de sintetizadores de voz.</li>
+	<li><strong><code> &lt;meta charset=&quot;UTF-8&quot;&gt;</code></strong> permite utilizar más caracteres que ACII, incluidos los emoticonos como &#128151;.</li>
+	<li><strong><code> &lt;title&gt;T&#xED;tulo de la p&#xE1;gina&lt;/title&gt;</code></strong> crea el título de la página que aparece en el navegador.
+	En este ejemplo, aparece "Título de la página".</li>
+	<li><strong><code> &lt;body&gt;     Cuerpo de la p&#xE1;gina  &lt;/body&gt;</code></strong> contiene la información que será mostrada en la web.
+	En este caso, aparecería la frase "Cuerpo de la página".</li>
+	<li><strong><code> &lt;/html&gt;</code></strong> marca el fin de la página</li>
+</ul>
+
+<p>Es interesante notar que cuando escribimos en HTML, nos encontramos con la siguiente estructura <strong><code>&lt;etiqueta&gt;</strong>texto<strong>&lt;/etiqueta&gt;</code></strong>.
+Esto marca la apertura y el cierre de una etiqueta. Se aplica al <i>texto</i> que hay entre ellos. Esto lo hemos visto con las etiquetas <i>title</i>,
+<i>body</i> e incluso <i>html</i>. Otros ejemplos son <strong>strong</strong> que sirve para escribir en negrita e <strong>i</strong> que nos permite escribir en cursiva.
+</p>
+
+<p> En ocasiones nos interesa escribir notas en el código que no queremos que aparezcan cuando el navegador muestre el fichero. Esto es lo que se conoce como <i>comentarios</i>.
+Se escriben de la siguiente manera: <strong><code>&lt;!- Esto es un comentario -&gt;</code></strong>. En este caso, no habría que cerrar ninguna etiqueta.</p>
+
+<p> Normalmente querremos empezar nuetra página con un encabezado. Tenemos seis niveles disponibles según queramos títulos, subtítulos, subsubtítulos, etc.</p>
+
+<div class="w3-card">
+	<pre><code>  &lt;h1&gt;Nivel 1&lt;/h1&gt;
+  &lt;h2&gt;Nivel 2&lt;/h2&gt;
+  &lt;h3&gt;Nivel 3&lt;/h3&gt;
+  &lt;h4&gt;Nivel 4&lt;/h4&gt;
+  &lt;h5&gt;Nivel 5&lt;/h5&gt;
+  &lt;h6&gt;Nivel 6&lt;/h6&gt;
+	</code></pre>
+</div>
+
+<div class="w3-card">
+<h1>Nivel 1</h1>
+<h2>Nivel 2</h2>
+<h3>Nivel 3</h3>
+<h4>Nivel 4</h4>
+<h5>Nivel 5</h5>
+<h6>Nivel 6</h6>
+</div>
+
+<p>Podemos personalizar nuestras cabeceras modificando los <i>estilos</i>.</p>
+
+<div class="w3-card">
+	<pre><code>
+&lt;h1 style="background-color:Blue; color:White; border:5px solid Red;"&gt;Nivel 1&lt;/h1&gt;
+	</code></pre>
+</div>
+
+<div class="w3-card">
+<h1 style="background-color:Blue; color:White; border:5px solid Red;">Nivel 1</h1>
+</div>
+
+
+<p> Cuando querramos escribir texto, podemos utilizar la etiqueta <i>p</i> que nos marca donde debe de comenzar y acabar un párrafo.
+También es útil conocer la etiqueta <i>br</i> que sirve para crear un salto de línea. Esta última no necesita cerrarse.
+Si necesitamos realizar una cita, usamos <i>blockquote</i>.</p>
+
+<p>Para insertar una imagen en nuestra página utilizaremos <code>&lt;img src=&quot;nombre_fichero_imagen&quot;&gt;</code>.
+Es recomendable cuando empezamos, colocar la imagen en la misma carpeta donde tenemos el archivo HTML, en caso contrario en <i>source=</i>
+deberíamos indicar la dirección donde se encuentra. Veamos un ejemplo.</p>
+
+<div class="w3-card">
+<pre><code>
+	&lt;img src='foto.webp' alt="gatito" style="width:33%;"&gt;
+	</code></pre>
+</div>
+
+<div class="w3-card">
+ <img src='foto.webp' alt="gatito" style="width:33%;">
+</div>
+
+<p> Ya hemos hablado de para que sirve <i>src</i> y hemos visto que <i>style</i> nos sirve para modificar opciones de estilo. Expliquemos entonces
+la opción que falta: <i>alt</i>. En ocasiones nuestra imagen no se va a poder mostrar ya sea por el tipo de formato, el navegador que estemos usando o
+porque la dirección a la misma sea errónea. En estos casos, se mostrará el texto que apaece en <i>alt</i>. Esto nos puede servir para ayudarnos a depurar
+el código. Además, si el usuario utiliza un lector de contenido, este leerá dicho texto.</p>
+
+<p> Finalmente, para realizar enlaces con otras páginas utilizaremos la etiqueta <i>a</i>.</p>
+
+<div class="w3-card">
+&lt;a href="https://www.uca.es"&gt; Pinche aquí para ir a la página de la Universidad de Cádiz &lt;/a&gt;
+</div>
+
+<div class="w3-card">
+<a href="https://www.uca.es"> Pinche aquí para ir a la página de la Universidad de Cádiz </a>
+</div>
+
+</div>
+
+ <div class="w3-panel w3-light-blue">
+  <h3> Creación de listas y tablas </h3>
+</div>
+
+ <div class="w3-panel w3-light-blue">
+  <h4> Listas desordenadas </h4>
+ </div>
+
+<div class="w3-panel">
+
+  <p>Para crear una lista donde los elementos no se enumeren usamos la etiqueta <i>ul</i>.
+  Además cada ítem tiene que marcarse con la etiqueta <i>li</i>.</p>
+  
+ <div class="w3-card">
+<pre><code> &lt;ul&gt;
+      &lt;li&gt; Elemento 1 &lt;/li&gt;
+      &lt;li&gt; Elemento 2 &lt;/li&gt;
+      &lt;li&gt; Elemento 3 &lt;/li&gt;
+   &lt;/ul&gt;
+</code></pre>
+</div>
+
+ <div class="w3-card">
+	<ul>
+	<li> Elemento 1 </li>
+	<li> Elemento 2 </li>
+	<li> Elemento 3 </li>
+	</ul>
+</div>
+
+<p>Podemos personalizar estas listas de distintas maneras.</p>
+
+
+
+ <div class="w3-card">
+<pre><code> &lt;ul style="list-style-type:circle;"&gt;
+      &lt;li&gt; Elemento 1 &lt;/li&gt;
+      &lt;li&gt; Elemento 2 &lt;/li&gt;
+      &lt;li&gt; Elemento 3 &lt;/li&gt;
+   &lt;/ul&gt;
+</code></pre>
+</div>
+
+ <div class="w3-card">
+	<ul style="list-style-type:circle;">
+	<li> Elemento 1 </li>
+	<li> Elemento 2 </li>
+	<li> Elemento 3 </li>
+	</ul>
+</div>
+
+ <div class="w3-card">
+<pre><code> &lt;ul style="list-style-type:square;"&gt;
+      &lt;li&gt; Elemento 1 &lt;/li&gt;
+      &lt;li&gt; Elemento 2 &lt;/li&gt;
+      &lt;li&gt; Elemento 3 &lt;/li&gt;
+   &lt;/ul&gt;
+</code></pre>
+</div>
+
+ <div class="w3-card">
+	<ul style="list-style-type:square;">
+	<li> Elemento 1 </li>
+	<li> Elemento 2 </li>
+	<li> Elemento 3 </li>
+	</ul>
+</div>
+
+ <div class="w3-card">
+<pre><code> &lt;ul style="list-style-type:square;"&gt;
+      &lt;li style="background-color:green;"&gt; Elemento 1 &lt;/li&gt;
+      &lt;li style="background-color:white;"&gt; Elemento 2 &lt;/li&gt;
+      &lt;li style="background-color:green;"&gt; Elemento 3 &lt;/li&gt;
+   &lt;/ul&gt;
+</code></pre>
+</div>
+
+ <div class="w3-card">
+	<ul style="list-style-type:square;">
+	<li style="background-color:green;"> Elemento 1 </li>
+	<li style="background-color:white;"> Elemento 2 </li>
+	<li style="background-color:green;"> Elemento 3 </li>
+	</ul>
+</div>
+
+<p>Podemos también anidar listas unas dentro de otras. En ese caso, por defecto nos cambia la forma de las lista.</p>
+
+ <div class="w3-card">
+<pre><code> &lt;ul&gt;
+      &lt;li&gt; Elemento 1 &lt;/li&gt;
+      &lt;li&gt; Elemento 2 &lt;/li&gt;
+      &lt;ul&gt;
+         &lt;li&gt; Elemento 2.1 &lt;/li&gt;
+         &lt;li&gt; Elemento 2.2 &lt;/li&gt;
+         &lt;li&gt; Elemento 2.3 &lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;li&gt; Elemento 3 &lt;/li&gt;
+   &lt;/ul&gt;
+</code></pre>
+</div>
+
+ <div class="w3-card">
+	<ul>
+		<li> Elemento 1 </li>
+		<li> Elemento 2 </li>
+		<ul>
+			<li> Elemento 2.1 </li>
+			<li> Elemento 2.2 </li>
+			<li> Elemento 2.3 </li>
+		</ul>
+		<li> Elemento 3 </li>
+	</ul>
+</div>
+
+</div>
+
+
+ <div class="w3-panel w3-light-blue">
+  <h4> Listas ordenadas </h4>
+ </div>
+ 
+ 
+<div class="w3-panel">
+ <p> De forma similar a lo que vimos anteriormente, podemos definir listas ordenadas con <i>ol</i>.
+ Al igual que antes, necesitamos <i>li</i> para marcar cada ítem.</p>
+
+ 
+ <div class="w3-card">
+<pre><code> &lt;ol&gt;
+      &lt;li&gt; Elemento 1 &lt;/li&gt;
+      &lt;li&gt; Elemento 2 &lt;/li&gt;
+      &lt;li&gt; Elemento 3 &lt;/li&gt;
+   &lt;/ol&gt;
+</code></pre>
+</div>
+
+ <div class="w3-card">
+	<ol>
+	<li> Elemento 1 </li>
+	<li> Elemento 2 </li>
+	<li> Elemento 3 </li>
+	</ol>
+</div>
+
+<p>Veamos algunos ejemplos personalizados.</P>
+
+ <div class="w3-card">
+<pre><code> &lt;ol type="a"&gt;
+      &lt;li&gt; Elemento 1 &lt;/li&gt;
+      &lt;li&gt; Elemento 2 &lt;/li&gt;
+      &lt;li&gt; Elemento 3 &lt;/li&gt;
+   &lt;/ol&gt;
+</code></pre>
+</div>
+
+ <div class="w3-card">
+	<ol type="a">
+	<li> Elemento 1 </li>
+	<li> Elemento 2 </li>
+	<li> Elemento 3 </li>
+	</ol>
+</div>
+
+ <div class="w3-card">
+<pre><code> &lt;ol type="i"&gt;
+      &lt;li&gt; Elemento 1 &lt;/li&gt;
+      &lt;li&gt; Elemento 2 &lt;/li&gt;
+      &lt;li&gt; Elemento 3 &lt;/li&gt;
+   &lt;/ol&gt;
+</code></pre>
+</div>
+
+ <div class="w3-card">
+	<ol type="i">
+	<li> Elemento 1 </li>
+	<li> Elemento 2 </li>
+	<li> Elemento 3 </li>
+	</ol>
+</div>
+
+
+ <div class="w3-card">
+<pre><code> &lt;ol type="a" start="10"&gt;
+      &lt;li&gt; Elemento 1 &lt;/li&gt;
+      &lt;li&gt; Elemento 2 &lt;/li&gt;
+      &lt;li&gt; Elemento 3 &lt;/li&gt;
+   &lt;/ol&gt;
+</code></pre>
+</div>
+
+ <div class="w3-card">
+	<ol type="a" start="10">
+	<li> Elemento 1 </li>
+	<li> Elemento 2 </li>
+	<li> Elemento 3 </li>
+	</ol>
+</div>
+
+ <div class="w3-card">
+<pre><code> &lt;ol style="background-color:Yellow;"&gt;
+      &lt;li&gt; Elemento 1 &lt;/li&gt;
+      &lt;li&gt; Elemento 2 &lt;/li&gt;
+      &lt;li&gt; Elemento 3 &lt;/li&gt;
+   &lt;/ol&gt;
+</code></pre>
+</div>
+
+ <div class="w3-card">
+	<ol style="background-color:Yellow;">
+	<li> Elemento 1 </li>
+	<li> Elemento 2 </li>
+	<li> Elemento 3 </li>
+	</ol>
+</div>
+
+<p>De igual forma podemos  anidar listas unas dentro de otras.</p>
+
+ <div class="w3-card">
+<pre><code> &lt;ol&gt;
+      &lt;li&gt; Elemento 1 &lt;/li&gt;
+      &lt;li&gt; Elemento 2 &lt;/li&gt;
+      &lt;ol&gt;
+         &lt;li&gt; Elemento 2.1 &lt;/li&gt;
+         &lt;li&gt; Elemento 2.2 &lt;/li&gt;
+         &lt;li&gt; Elemento 2.3 &lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;li&gt; Elemento 3 &lt;/li&gt;
+   &lt;/ol&gt;
+</code></pre>
+</div>
+
+ <div class="w3-card">
+	<ol>
+		<li> Elemento 1 </li>
+		<li> Elemento 2 </li>
+		<ol>
+			<li> Elemento 2.1 </li>
+			<li> Elemento 2.2 </li>
+			<li> Elemento 2.3 </li>
+		</ol>
+		<li> Elemento 3 </li>
+	</ol>
+</div>
+ </div>
+ 
+ <div class="w3-panel w3-light-blue">
+  <h4> Tablas </h4>
+ </div>
+ 
+ 
+<div class="w3-panel">
+<p>Las tablas son un poco más complejas de realizar. En primer lugar debemos utilizar la etiqueta <i>table</i> para marcar el inicio y el final de la msima.
+A continuación, <i>tr</i> para cada fila y, finalmente, <i>td</i> para cada celda.</p>
+
+
+ <div class="w3-card">
+ <pre><code>
+ &lt;table&gt;
+   &lt;tr&gt;
+      &lt;td&gt;Nombre&lt;/td&gt;
+      &lt;td&gt;Edad&lt;/td&gt;
+      &lt;td&gt;Profesión&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+      &lt;td>Juan&lt;/td&gt;
+      &lt;td&gt;30&lt;/td&gt;
+      &lt;td&gt;Fontanero&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+      &lt;td&gt;María&lt;/td&gt;
+      &lt;td&gt;35&lt;/td&gt;
+      &lt;td&gt;Astronauta&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+      &lt;td&gt;Eva&lt;/td&gt;
+      &lt;td&gt;33&lt;/td&gt;
+      &lt;td&gt;Matemática&lt;/td&gt;
+   &lt;/tr&gt;
+ &lt;/table&gt;
+</code></pre>
+ </div>
+ 
+ <div class="w3-card">
+	<table>
+		<tr>
+			<td>Nombre</td>
+			<td>Edad</td>
+			<td>Profesión</td>
+		</tr>
+		<tr>
+			<td>Juan</td>
+			<td>30</td>
+			<td>Fontanero</td>
+		</tr>
+		<tr>
+			<td>María</td>
+			<td>35</td>
+			<td>Astronauta</td>
+		</tr>
+		<tr>
+			<td>Eva</td>
+			<td>33</td>
+			<td>Matemática</td>
+		</tr>
+	</table>
+ </div>
+
+<p>Existe un tipo especial de fila que se utiliza para los encabezados. Su etiqueta es <i>th</i>.
+Con esto y algún ajuste en los estilos podemos hacer que nuestra tabla luzca mejor.</p>
+
+
+ <div class="w3-card">
+ <pre><code>
+ &lt;table style="width:100%; border:5px solid black; text-align: center;"&gt;
+   &lt;th&gt;
+      &lt;td&gt;Nombre&lt;/td&gt;
+      &lt;td&gt;Edad&lt;/td&gt;
+      &lt;td&gt;Profesión&lt;/td&gt;
+   &lt;/th&gt;
+   &lt;tr style="background-color:lightgrey;"&gt;
+      &lt;td>Juan&lt;/td&gt;
+      &lt;td&gt;30&lt;/td&gt;
+      &lt;td&gt;Fontanero&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+      &lt;td&gt;María&lt;/td&gt;
+      &lt;td&gt;35&lt;/td&gt;
+      &lt;td&gt;Astronauta&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr style="background-color:lightgrey;"&gt;
+      &lt;td&gt;Eva&lt;/td&gt;
+      &lt;td&gt;33&lt;/td&gt;
+      &lt;td&gt;Matemática&lt;/td&gt;
+   &lt;/tr&gt;
+ &lt;/table&gt;
+</code></pre>
+ </div>
+ 
+ <div class="w3-card">
+	<table style="width:100%; border:5px solid black; text-align: center;">
+		<tr>
+			<th>Nombre</th>
+			<th>Edad</th>
+			<th>Profesión</th>
+		</tr>
+		<tr style="background-color:lightgrey;">
+			<td>Juan</td>
+			<td>30</td>
+			<td>Fontanero</td>
+		</tr>
+		<tr>
+			<td>María</td>
+			<td>35</td>
+			<td>Astronauta</td>
+		</tr>
+		<tr style="background-color:lightgrey;">
+			<td>Eva</td>
+			<td>33</td>
+			<td>Matemática</td>
+		</tr>
+	</table>
+ </div>
+
+<p>También podemos unir columnas y filas utilizando <i>colspan</i> y  <i>rowspan</i>, respectivamente. </p>
+
+
+ <div class="w3-card">
+ <pre><code>
+ &lt;table style="width:100%; border:5px solid black; text-align: center;"&gt;
+   &lt;th&gt;
+      &lt;td&gt;Nombre&lt;/td&gt;
+      &lt;td&gt;Edad&lt;/td&gt;
+      &lt;td&gt;Profesión&lt;/td&gt;
+   &lt;/th&gt;
+   &lt;tr style="background-color:lightgrey;"&gt;
+      &lt;td>Juan&lt;/td&gt;
+      &lt;td colspan="2"&gt;Sin datos&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+      &lt;td rowspan="2"&gt;Sin datos&lt;/td&gt;
+      &lt;td&gt;35&lt;/td&gt;
+      &lt;td&gt;Astronauta&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr style="background-color:lightgrey;"&gt;
+      &lt;td&gt;33&lt;/td&gt;
+      &lt;td&gt;Matemática&lt;/td&gt;
+   &lt;/tr&gt;
+ &lt;/table&gt;
+</code></pre>
+ </div>
+ 
+ <div class="w3-card">
+	<table style="width:100%; border:5px solid black; text-align: center;">
+		<tr>
+			<th>Nombre</th>
+			<th>Edad</th>
+			<th>Profesión</th>
+		</tr>
+		<tr style="background-color:lightgrey;">
+			<td>Juan</td>
+			<td colspan="2">Sin datos</td>
+		</tr>
+		<tr>
+			<td rowspan="2">Sin datos</td>
+			<td>35</td>
+			<td>Astronauta</td>
+		</tr>
+		<tr style="background-color:lightgrey;">
+			<td>33</td>
+			<td>Matemática</td>
+		</tr>
+	</table>
+ </div>
+
+</div>
+
+ <div class="w3-panel w3-light-blue">
+  <h3> Elementos de entrada </h3>
+</div>
+
+ <div class="w3-panel">
+  <p> Los elementos de entrada son aquellos que nos permiten introducir información en la web. Existen numerosos elementos, de entre los cuales destacaremos los siguientes:</p>
+  
+  <ul class="w3-ul">
+	<li> Campos de texto</li>
+	<li> Botones</li>
+	<li> Casillas verificables<l/i>
+	<li> Fechas</li>
+	<li> Botones de radio </li>
+	<li> Contraseñas </li>
+  </ul>
+
+<p>En esta sección no entraremos en los detalles de cada uno. Dejaremos eso para más adelante, cuando veamos el uso de <i>JavaScript</i>.
+Veremos sin embargo, algunos ejemplos de estos para acostumbrarnos a su estructura.</p>
+
+
+
+<div class="w3-card">
+ <input type="text" name="campoTexto" value="" id="texto1">
+ <br>
+ <input type="button" name="boton" value="Púlsame" id="boton1">
+ <br>
+  <input type="checkbox" name="checkBox" value="Valor 1" id="checkbox1">
+  <input type="checkbox" name="checkBox" value="Valor 2" id="checkbox2">
+  <input type="checkbox" name="checkBox" value="Valor 3" id="checkbox3">
+ <br>
+  <input type="date" name="checkBox" value="" id="date1">
+ <br>
+  <input type="radio" name="radioButton" value="Valor 1" id="radio1">
+  <input type="radio" name="radioButton" value="Valor 2" id="radio1">
+  <input type="radio" name="radioButton" value="Valor 3" id="radio1">
+ <br>
+  <input type="password" name="password" value="" id="password1">
+ </br> 
+</div>
+</div>
+
+ <div class="w3-panel w3-light-blue">
+  <h3> Ejercicios propuestos </h3>
+</div>
+
+</body>
+</html>
