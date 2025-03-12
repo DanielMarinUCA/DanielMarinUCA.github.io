@@ -1,0 +1,264 @@
+  <!DOCTYPE html>
+  <html lang="es-ES">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./w3.css">
+  
+  <title> Matemáticas dinámicas</title>
+  
+  <style>
+  td {background-color: red; color:yellow;}
+  .bordeFino {border: 5px solid black;}
+  .bordeGrueso {border: 10px solid pink;}
+  </style>
+  
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+MathJax.Hub.Config({
+  TeX: {
+    Macros: {
+      R: "{\\mathbb R}",
+      N: "{\\mathbb N}",
+      Z: "{\\mathbb Z}",
+      bold: ["{\\bf #1}",1]
+    }
+  }
+});
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+TeX: {
+  extensions: ["AMSmath.js", "AMSsymbols.js", "color.js"]
+}
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML' async></script>
+  
+  
+  
+  
+  <body class="w3-sand">
+  
+ <div class="w3-panel w3-blue">
+  <h1> Matemáticas dinámicas. Curso 24/25</h1>
+</div>
+
+ <div class="w3-panel w3-blue">
+  <h2> 12 de Marzo</h2>
+</div>
+
+
+ <div class="w3-panel w3-light-blue">
+  <h3> Estilos </h3>
+</div>
+
+ <div class="w3-panel">
+
+ <p>Los estilos nos permiten personalizar nuestras páginas web así como darle una apariencia más elegante. Para utilizarlas, deberemos añadir el atributo <i>style</i> a la etiqueta correspondiente de la siguiente manera:
+ <strong><code>&lt;etiqueta style="propiedad:valor;"&gt; </code></strong>. Algunas propiedades son:</p>
+
+<ul class="w3-ul w3-hoverable">
+	<li> <code><strong>background-color</strong></code> para el color del fondo.</li>
+	<li> <code><strong>color</strong></code> para el color del texto.</li>
+	<li> <code><strong>font-family</strong></code> para cambiar las fuentes.</li>
+	<li> <code><strong>font-size</strong></code> para elegir el tamaño del texto.</li>
+	<li> <code><strong>text-alignment</strong></code> para modificar el alineamiento del texto.</li>
+	<li> <code><strong>width</strong></code> para escoger el ancho de un elemnto.</li>
+</ul> 
+ 
+<p>Antes de mostrar ejemplos, vamos a hacer una pequeña modificación al código para que la página se vea bien en cualquier tipo de dispositivo.
+Para ello hemos de añadir <strong><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</code></strong>
+al inicio de nuestro archivo. Quedaría, por tanto, así:</p>
+
+ <div class="w3-card">
+ <pre><code>  &lt;!DOCTYPE html&gt;
+  &lt;html lang=&quot;es-ES&quot;&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;title&gt;T&#xED;tulo de la p&#xE1;gina&lt;/title&gt;</code></pre>
+ </div>
+ 
+ <p>Los atributos, <i>background-color</i> y <i>text-alignment</i> y <i>width</i> ya los hemos utilizado con anterioridad. Veamos como funcionan los otros.
+ Para ello utilizaremos la etiqueta <strong>span</strong> que nos permiten cambiar estilos dentro de otra etiqueta.</p>
+ 
+ <div class="w3-card">
+ &lt;p&gt; En este párrafo hay letras &lt;span style="color:Blue"&gt;verdes&lt;/span&gt; y &lt;span style="color:Green"&gt;azules&lt;/span&gt;.  Aunque los &lt;span style="font-family:courier;"&gt;colores&lt;/span&gt; &lt;span style="font-size:120%;"&gt;no&lt;/span&gt; correspondan a lo que está &lt;span style="font-size:80%;"&gt;escrito&lt;/span&gt;.&lt;/p&gt;
+ 
+ </div>
+ 
+ <div class="w3-card">
+ <p> En este párrafo hay letras <span style="color:Blue">verdes</span> y <span style="color:Green">azules</span>. Aunque los <span style="font-family:courier;">colores</span> <span style="font-size:120%;">no</span> correspondan a lo que está <span style="font-size:80%;">escrito</span>.</p>
+ </div>
+ 
+ 
+  <p> Hasta ahora hemos tenido que cambiar uno a uno los estilos de los elementos de nuestra página. Esto puede ser problemático,
+  si tenemos un elemento que se repite de forma numerosa. Para solucionar este problema, podemos definir un estilo al comienzo del documento para que se aplique a todos los
+  elementos iguales. Por ejemplo, si quisiéramos que todas las celdas de nuestras tablas fueran de color rojo con letras amarillas, añadiríamos lo siguiente al comienzo del documento:</p>
+  
+  <div class="w3-card">
+  <pre><code>  &lt;!DOCTYPE html&gt;
+  &lt;html lang=&quot;es-ES&quot;&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;title&gt;T&#xED;tulo de la p&#xE1;gina&lt;/title&gt;
+  &lt;style&gt;
+    td {background-color: red; color:yellow;}
+  &lt;/style&gt;
+</code></pre>
+  </div>
+  
+  <p>De esta forma, podemos crear tablas personalizadas de manera mucho más sencilla.</p>
+  
+  
+<div class="w3-card">
+<pre><code>  &lt;table&gt;
+    &lt;tr&gt;
+	   &lt;td&gt; Hola &lt;/td&gt; &lt;td&gt;mundo &lt;/td&gt;
+	&lt;/tr&gt;
+  &lt;/table&gt;</code></pre>
+</div>
+  
+<div class="w3-card">
+  <table>
+    <tr>
+	   <td> Hola </td> <td>mundo </td>
+	</tr>
+  </table>
+</div>
+
+<p>En ocasiones, nos gustaría tener dos o más estilos para un solo elemento. Para esto, utilizaremos clases.
+Estas se colocan en la sección <i>style</i> al comienzo del archivo y tienen la estructura <code>.nombreDeLaClase {Estilo de la clase}</code>.
+Es importante poner el punto justo antes de definir el nombre.
+Para este ejemplo, crearemos dos una llamada <i>bordeFino</i> y otra llamada <i>bordeGrueso</i>.</p> 
+
+
+ <div class="w3-card">
+  <pre><code>  &lt;!DOCTYPE html&gt;
+  &lt;html lang=&quot;es-ES&quot;&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;title&gt;T&#xED;tulo de la p&#xE1;gina&lt;/title&gt;
+  &lt;style&gt;
+    td {background-color: red; color:yellow;}
+    .bordeFino {border: 5px solid black;}
+    .bordeGrueso {border: 10px solid pink;}
+  &lt;/style&gt;
+</code></pre>
+  </div>
+  
+ <p> Estas clases pueden ser tan sencillas o tan complicadas como queramos.</p>
+ 
+ <div class="w3-card">
+    <p> Esto es una <span class="bordeFino">prueba</span> del uso de <span class="bordeGrueso">clases</span>.</p>
+ </div>
+ 
+ <p>En el ejemplo anterior, hemos utilizado una clase en una etiqueta <i>span</i> pero podríamos haberla utilizado en cualquier otra. Esto es una de las ventajas
+ de las clases. Podemos reutilizarlas en todas las etiquetas que queramos con una única definición. Si nuestro fichero es grade y necesita muchas clases es más cómodo
+ crear un fichero donde almacenarlas. Este tipo de fichero tiene extensión <i>.css</i> (Cascading Style Sheets). En nuestro caso,
+ podríamos crear un fichero, en la misma carpeta, que se llame <i>nuestroEstilo.css</i> y que en su interior contenga:</p>
+
+<div class=w3-card>
+   <pre><code>     td {background-color: red; color:yellow;}
+    .bordeFino {border: 5px solid black;}
+    .bordeGrueso {border: 10px solid pink;}	</code></pre>
+</div>
+
+<p> Para relacionar nuestra página con el archivo CSS para poder utilizar el contenido que hemos definido en él borraremos el estilo que habíamos definido anteriormente
+y añadiremos un enlace al documento de estilos.</p>
+
+ <div class="w3-card">
+  <pre><code>  &lt;!DOCTYPE html&gt;
+  &lt;html lang=&quot;es-ES&quot;&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;title&gt;T&#xED;tulo de la p&#xE1;gina&lt;/title&gt;
+  &lt;link rel="stylesheet" href="nuestroEstilo.css"&gt;
+</code></pre>
+  </div>
+  
+<p> Como curiosidad para esta web se hay utilizado un archivo CSS gratuito que está disponible en <a href="https://www.w3schools.com/w3css/w3css_downloads.asp">este enlace</a>.</p>
+
+</div>
+
+ <div class="w3-panel w3-light-blue">
+  <h3> Escritura matemática </h3>
+</div>
+
+ <div class="w3-panel">
+  <p> Para poder escribir símbolos y elementos matemáticos, no nos vale solamente utilizar lo que hemos visto. Necesitamos recurrir a una biblioteca denominada <a href="https://www.mathjax.org/">MathJax</a>.
+Por extensión, no vamos a cubir aqui todos  detalles de la misma, pero sí como añadirla a nuestra págia para poder usarla. Para ello, debemos modificar nuevamente la cabecera de nuestro archivo.</p>
+
+<div class="w3-card">
+<pre><code>  &lt;!DOCTYPE html&gt;
+  &lt;html lang=&quot;es-ES&quot;&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;title&gt;T&#xED;tulo de la p&#xE1;gina&lt;/title&gt;
+  &lt;link rel="stylesheet" href="nuestroEstilo.css"&gt;
+  &lt;script type="text/x-mathjax-config"&gt;
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+MathJax.Hub.Config({
+  TeX: {
+    Macros: {
+      R: "{\\mathbb R}",
+      N: "{\\mathbb N}",
+      Z: "{\\mathbb Z}",
+      bold: ["{\\bf #1}",1]
+    }
+  }
+});
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+TeX: {
+  extensions: ["AMSmath.js", "AMSsymbols.js", "color.js"]
+}
+&lt;/script&gt;
+&lt;script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML' async&gt;&lt;/script&gt;
+</code></pre>
+</div>
+
+
+<p> Ahora ya estamos en disposición para utilizar LaTeX en nuestra web, para ello tenemos que utilizar los símbolos de dólar.</p>
+
+<div class="w3-card">
+	<pre><code>$\forall n\in\N$ par se verifica que $2\midn$. </code></pre>
+</div>
+
+<div class="w3-card">
+	$\forall n\in\N$ par se verifica que $2\mid n$. 
+</div>
+
+</div>
+
+ <div class="w3-panel w3-light-blue">
+  <h3> Ejercicios propuestos </h3>
+</div>
+
+
+ <div class="w3-panel">
+<ol class="w3-list">
+	<li> Crea un archivo llamado <i>miestilo.css</i> con distintas clases.</li>
+	<li> Crea un archivo llamado <i>ejercicio3.html</i>.
+	<ol class="w3-list">
+		<li>Escribe en él sobre un tema de matemáticas utilizando MathJax.</li>
+		<li>Debes usar el fichero CSS creado anteriormente.</li>
+		<li>Enlaza este archivo a <i>index.html</i>.</li>
+	</ol>
+</ol>
+
+<p> Se valorará la originalidad, la presentación y la complejidad. </p>
+
+</div>
+
+</body>
+</html>
