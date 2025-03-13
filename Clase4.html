@@ -1,0 +1,578 @@
+  <!DOCTYPE html>
+  <html lang="es-ES">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./w3.css">
+  
+  <title> Matemáticas dinámicas</title>
+  
+  <body class="w3-sand">
+  
+ <div class="w3-panel w3-blue">
+  <h1> Matemáticas dinámicas. Curso 24/25</h1>
+</div>
+
+ <div class="w3-panel w3-blue">
+  <h2> 14 de Marzo</h2>
+</div>
+
+ <div class="w3-panel w3-light-blue">
+  <h3> Comenzando con JavaScript </h3>
+</div>
+
+<div class="w3-panel">
+<p> JavaScript es un lenguaje de programación que se ejecuta en los navegadores de los usuarios y que permite
+hacer páginas web interactivas. Nos permite modificar contenido
+escrito en HTML, valores de atributos, estilos, etc.</p>
+
+<p>Para utilizarlo, debemos utilizar la etiqueta <strong>script</strong>.
+Esta puede utilizarse tanto al inicio del documento como dentro en
+el cuerpo. Al igual que con los estilos, puede crearse un documento distinto, 
+en este caso con la extensión <i>.js</i> donde colocar el código que vayamos creando.
+Por ejemplo, si el archivo se llamara <i>misFunciones.js</i> dentro del archivo
+HTML pondríamos </p>
+
+
+ <div class="w3-card">
+<pre><code>&lt;script src="misFunciones.js"&gt;&lt;/script&gt;</code></pre>
+ </div>
+ 
+<p> Veamos un ejemplo donde podemos escribir en una celda de una tabla
+utilizando código en JavaScript. Para ello en primer lugar tenemos que que ponerle
+un identificador a la celda para que el programa sepa cual es la que debe modificar.
+Haremos eso con el atributo <i>id</i>.</p>
+
+ <div class="w3-card">
+<pre><code>&lt;table style="width:100%;"&gt;
+   &lt;tr&gt;
+		&lt;td&gt; la celda de la derecha se modifica&lt;/td&gt;
+		&lt;td id="modificable"&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+</div>
+
+<p>A continuación crearemos el código para que modifique la celda con <i>id="modificable"</i>.<p>
+
+
+ <div class="w3-card"> 
+<table style="width:100%;border:5px solid black">
+   <tr>
+		<td> la celda de la derecha se modifica</td>
+		<td id="modificable"></td>
+	</tr>
+</table>
+</div>
+
+<script>
+ document.getElementById("modificable").innerHTML = "¡Modificada!";
+</script>
+
+ <div class="w3-card">
+<pre><code> &lt;script&gt;
+ document.getElementById("modificable").innerHTML = "¡Modificada!";
+&lt;/script&gt;
+</code></pre>
+</div>
+
+<p> En este ejemplo, el programa ha acudido al documento, ha buscado el elemento con un identificador
+igual a <i>modificable</i> y ha accedido a su código HTML. Luego ha cambiado este valor por
+la palabra <i>¡Modificada!</i>. Es importante remarcar que cada orden en JavaScript concluye con punto y coma.
+Veamos ahora como podemos cambiar un estilo.</p>
+
+ <div class="w3-card">
+ <pre><code> &lt;table style="width:100%;"&gt;
+   &lt;tr&gt;
+		&lt;td&gt; la celda de la derecha se modifica&lt;/td&gt;
+		&lt;td id="modificable2"&gt;Soy azul&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+</div>
+
+ <div class="w3-card">
+<table style="width:100%;border:5px solid black">
+   <tr>
+		<td> la celda de la derecha se modifica</td>
+		<td id="modificable2"> Soy azul</td>
+	</tr>
+</table>
+</div>
+
+<script>
+ document.getElementById("modificable2").style.color = "blue";
+ document.getElementById("modificable2").style.backgroundColor  = "black";
+</script>
+
+ <div class="w3-card">
+<pre><code> &lt;script&gt;
+ document.getElementById("modificable2").style.color = "blue";
+ document.getElementById("modificable2").style.backgroundColor  = "black";
+&lt;/script&gt;
+</code></pre>
+ </div>
+
+<p>JavaScript nos permite también crear una alerta de forma sencilla para avisar al usuario de algo que este sucendiendo.</p>
+
+ <div class="w3-card">
+<pre><code> &lt;script&gt;
+alert("Bienvenido usuario");
+&lt;/script&gt;
+</code></pre>
+</div>
+
+<p>En este lenguaje los comentarios se realizan con <strong>//</strong> si
+van a ocupar una línea o con <strong>/* */</strong> si ocupan varias.</p>
+
+
+ <div class="w3-card">
+ <pre><code> // Esto es un comentario de una línea.
+/* Esto es un comentario
+   de varias líneas./*
+</code></pre>
+</div>
+
+</div>
+
+ <div class="w3-panel w3-light-blue">
+  <h3> Variables </h3>
+</div>
+
+ <div class="w3-panel">
+
+<p>Antes de comenzar a programar, debemos saber cómo podemos depurar
+el código. Una primera idea podría ser ir modificando el contenido
+HTML de un elemento designado para eso o ir lanzando alertas. Sin embargo
+esto puede resultar muy farragoso. La mejor opción es poner mensajes
+en la consola del navegador. El acceso puede variar de un navegador
+a otro, pero en general, se accede haciendo click derecho con el
+ratón y dándole a <i>Inspeccionar</i>. Luego en el menú que aparece
+pulsamos <i>Consola</i>.</p>
+
+ <div class="w3-card">
+<pre><code>
+&lt;script&gt;
+console.log("Hola mundo.")
+&lt;/script&gt;
+</code></pre>
+</div>
+
+<script>
+console.log("Hola mundo")
+</script>
+
+<p>Si todo ha ido bien, el mensaje <i>Hola mundo</i> debería aparecer en la consola. Veamos ahora
+los operadores básicos:</p>
+
+<ul>
+	<li><strong>+</strong> simboliza la suma.</li>
+	<li><strong>-</strong> simboliza la resta.</li>
+	<li><strong>*</strong> simboliza la multiplicación.</li>
+	<li><strong>**</strong> simboliza la potencia.</li>
+	<li><strong>/</strong> simboliza la división.</li>
+	<li><strong>%</strong> simboliza el módulo.</li>
+	<li><strong>++</strong> simboliza el incremento en una unidad.</li>
+	<li><strong>--</strong> simboliza el decremento en una unidad.</li>
+	<li><strong>==</strong> simboliza la igualdad lógica.</li>
+	<li><strong>=</strong> simboliza la asignación.</li>
+</ul>
+
+ <div class="w3-card">
+<pre><code> &lt;script&gt;
+console.log(2**3)
+&lt;/script&gt;
+</code></pre>
+</div>
+
+<script>
+console.log(2**3)
+</script>
+
+<p>Para declarar variables, tenemos la palabra reservadas <strong>let</strong>
+y para declarar constantes <strong>const</strong>. Hay que tener en cuenta
+que para navegadores antinguos se utilizaba <strong>var</strong>,
+y, aunque esta va cayendo en desuso, hay que conocerla porque aparece
+en la bibliografía menos reciente.</p>
+
+ <div class="w3-card">
+<pre><code> &lt;script&gt;
+let x = 5;
+let y = 6;
+console.log(x+y);
+&lt;/script&gt;
+</code></pre>
+</div>
+
+<script>
+let x = 5;
+let y = 6;
+console.log(x+y);
+</script>
+
+<p></p>
+
+</div>
+
+ <div class="w3-panel w3-light-blue">
+  <h3> Condicionales </h3>
+</div>
+
+<div class="w3-panel">
+<p>Los condicionales que usaremos en JavaScript son <strong>if</strong>, <strong>else</strong> y <strong>switch</strong>.
+El primero, <i>if</i> nos permite ejecutar un bloque de código si se verifica cierta condición;
+la segunda, <i>else</i> es pareja de la anterior y ejecuta un bloque de código cuando no se verifica la condición del <i>if</i>; y,
+finalmente, <i>switch</i> nos permite escribir diversas opciones para ejecutar un código.</p>
+
+<div class="w3-card">
+<pre><code> if(condicion){
+ // Código a ejecutar si se cumple la condición.
+}	
+</code></pre>
+</div>
+
+<div class="w3-card">
+<pre><code> if(condicion){
+ // Código a ejecutar si se cumple la condición.
+}else{
+ // Código a ejecutar si no se cumple la condición.
+}
+</code></pre>
+</div>
+
+<div class="w3-card">
+<pre><code> switch(expresion) {
+  case valor1:
+    // Código a ejecutar si "expresion" vale "valor1"
+    break;
+  case valor2:
+    // Código a ejecutar si "expresion" vale "valor2"
+    break;
+  default:
+    // Código a ejecutar si no se verifica lo anterior.
+} 
+</code></pre>
+</div>
+
+
+
+<div class="w3-card">
+<pre><code>&lt;script&gt;
+let a = 8;
+if(a<4)
+{
+   console.log("Esto no debería salir");
+}else
+{
+   console.log("8 > 4");
+}
+a++;
+switch(a){
+   case 8:{
+      console.log("a sigue valiendo 8");
+      break;
+   }
+   case 9:{
+      console.log("a++ aumenta el valor en 1, por tanto, a=9");
+      break;
+   }
+   default:
+      console.log("a no vale ni 8 ni 9");
+}
+&lt;/script&gt;
+</code></pre>
+</div>
+
+<p>En algunas situaciones es útil indicar que algo es verdadero o falso, pero ello
+utilizaremos <strong>true</strong> y <strong>false</strong>, respectivamente.</p>
+
+</div>
+
+
+ <div class="w3-panel w3-light-blue">
+  <h3> Bucles </h3>
+</div>
+
+
+ <div class="w3-panel">
+  <p> Un bucle es una sección de código que se repite mientras se verifica una condición.
+  El primer tipo de bucle que vamos a ver es el bucle <strong>for</strong>.
+  </p>
+
+  
+ <div class="w3-card">
+<pre><code>  for(expresión 1; expresión 2; expresión 3)
+{
+   // Código que se tiene que repetir.
+}  </code></pre>
+</div>  
+ 
+<p>En <i>expresión 1</i> colocaremos la condición de inicio del bucle,
+en <i>expresión 2</i>, la condición de parada y en <i>expresión 3</i>
+el incremento que se realizará cada vez que se ejecute el código situado
+en el bloque interior.</p>
+
+<div class="w3-card">
+<pre><code>&lt;script&gt;
+console.log("Van a aparecer números del 0 al 4");
+for(let i=0;i<5;i++)
+{
+   console.log(i);
+}
+&lt;/script&gt;
+</div>
+
+
+<script>
+console.log("Van a aparecer números del 0 al 4");
+for(let i=0;i<5;i++)
+{
+	console.log(i);
+}
+</script>
+
+<p> Otro bucle muy utilizado es <strong>while</strong>.
+
+ <div class="w3-card">
+<pre><code>  while(expresión)
+{
+   // Código que se tiene que repetir.
+}</code></pre>
+</div>
+
+<p>En este caso, mientras que <i>expresión</i> sea verdad, el bucle
+se seguirá ejecutando.</p>
+
+ <div class="w3-card">
+<pre><code>&lt;script&gt;
+console.log("Van a aparecer los números 0,2 y 4.");
+let b = 0;
+while(b<5){
+	console.log(b);
+	b+=2; // Esto es equivalente a b = b+2;
+}
+&lt;/script&gt;</code></pre>
+</div>
+
+<script>
+console.log("Van a aparecer los números 0,2 y 4.");
+let b = 0;
+while(b<5){
+	console.log(b);
+	b+=2; // Esto es equivalente a b = b+2;
+}
+</script>
+
+<p> Una orden que útil conocer es <strong>break</strong> la cual nos permite salir
+automáticamente de un bucle.</p>
+
+ <div class="w3-card">
+<pre><code>&lt;script&gt;
+console.log("Van a aparecer los números del 0 al 5");
+for(let i=0;i<=10;i++)
+{
+   console.log(i);
+   if(i>=5){
+      break;
+   }
+}
+&lt;/script&gt;</code></pre>
+</div>
+
+<script>
+console.log("Van a aparecer los números naturales menores o iguales que cinco.")
+for(let i=0;i<=10;i++)
+{
+	console.log(i);
+	if(i>=5){
+		break;
+	}
+}
+</script>
+
+ </div>
+
+
+ <div class="w3-panel w3-light-blue">
+  <h3> Listas y cadenas</h3>
+</div>
+
+ <div class="w3-panel">
+
+<p> Las listas son un tipo de variable que nos permite almacenar más de un dato.</p>
+
+ <div class="w3-card">
+<pre><code> const nombreDeLaLista = [elemento1,elemento2,...]
+</code></pre>
+</div>
+
+<p>Notemos que estamos utilizando <i>const</i> para declarar la lista. Esto se debe a que
+realmente, lo que declaramos una direccion de memoria y no los elementos por sí mismos.
+Así, aunque la lista sea constante, podremos manipular sus elementos. Para acceder a estos
+utilizaremos los corchetes y la posición en la que se encuentra (teniendo en cuenta que el
+primer elemento es el elemento 0, el segundo es el 1, etc.</p>
+
+
+ <div class="w3-card">
+<pre><code>const miLista = ["Bob","Eva","María"];
+console.log(miLista);
+miLista[1]="Pedro";
+console.log(miLista);
+</code></pre>
+</div>
+
+<script>
+const miLista = ["Bob","Eva","María"];
+console.log(miLista);
+miLista[1]="Pedro";
+console.log(miLista);
+</script>
+
+<p>La ventaja de las listas es que vienen con funciones y métodos preprogramados por lo
+que nos facilitan mucho la tarea de trabajar con ellos. Por ejemplo, para saber el número de elemento
+solamente tendríamos que llamar a la propiedad <strong>length</strong> y para ordenar sus elementos,
+a la función <strong>sort</strong>.</p> Explicaremos las funciones un poco más adelante en esta página.
+
+ <div class="w3-card">
+<pre><code>const miLista2 = [48,0,4,92];
+console.log("La longitud de la lista es");
+console.log(miLista2.length);
+console.log("La lista ordenada es");
+console.log(miLista2.sort());
+</code></pre>
+</div>
+
+<script>
+const miLista2 = [48,0,4,92];
+console.log("La longitud de la lista es");
+console.log(miLista2.length);
+console.log("La lista ordenada es");
+console.log(miLista2.sort());
+</script>
+
+<p>Otras funciones útiles cuando trabajamos con listas son:</p>
+
+<ul class="w3-ul w3-hoverable">
+	<li> <strong>join("separador")</strong> nos permite unir los elementos de una lista en una cadena de texto, donde cada elemento está separado por <i>separador</i></li>
+	<li> <strong>pop()</strong> elimina el último elemento de la lista.</li>
+	<li> <strong>shift()</strong> elimina el primer elemento de la lista.</li>
+	<li> <strong>push(elemento)</strong> añade <i>elemento</i> al final de la lísta.</li>
+	<li> <strong>unshift(elemento)</strong> añade <i>elemento</i> al inicio de la lísta.</li>
+	<li> <strong>concat(otraLista)</strong> concatena nuestra lista con <i>otraLista</i>.</li>
+	<li> <strong>map(función)</strong> aplica <i>función</i> a cada elemento de la lista.</li>
+</ul>
+
+<p>Un tipo especial de listas son las cadenas de caracteres. las cuales nos permiten trabajar con texto.</p>
+
+ <div class="w3-card">
+<pre><code> let nombreCadena = "texto que queramos almacenar";
+</code></pre>
+</div>
+
+<p>Igual que antes tenemos métedos y propiedades como <i>length</i> ya programados. Es interesante notar que en este caso, podemos utilizar el
+<strong>operador +</strong> para concatenar cadenas.</p>
+
+<ul class="w3-ul w3-hoverable">
+	<li><strong>slice(inicio,fin)</strong> devuelve los valores de la cadena entre la posicíón <i>inicio</i> y <i>fin</i> (sin incluir).</li>
+	<li><strong>toUpperCase()</strong> convierte las letras en mayúsculas.</li>
+	<li><strong>toLowerCase()</strong> convierte las letras en minúsculas.</li>
+	<li><strong>trim()</strong> elimina los espacios en blancos al inicio y al final de la cadena.</li>
+	<li><strong>replace("valorAntiguo", "valorNuevo")</strong> cambia la subcadena <i>"valorAntiguo"</i> por <i>"valorNuevo"</i>.</li><li><strong>replace("valorAntiguo", "valorNuevo")</strong> cambia la subcadena <i>"valorAntiguo"</i> por <i>"valorNuevo"</i>.</li>
+	<li><strong>replaceAll("valorAntiguo", "valorNuevo")</strong> es igual que el anterior pero modifica todas las apariciones de <i>"valorAntiguo"</i>.</li>
+	<li><strong>split("separador")</strong> convierte la cadena en una lista separando los elementos utilizando el <i>"separador"</i>.</li>
+	<li><strong></strong></li>
+</ul>
+
+ </div>
+
+
+
+ <div class="w3-panel w3-light-blue">
+  <h3> Funciones</h3>
+</div>
+
+
+ <div class="w3-panel">
+  <p> Una función es un bloque de código con nombre que realiza una acción. Esto
+  nos permite repetir una cierta secuencia de órdenes simplemente llamando a la función
+  en lugar de tener que repetir la escritura de dichas órdenes.</p>
+
+
+ <div class="w3-card">
+<pre><code>function nombreFuncion(variables){
+   // código
+   return (valorDeSalida); // no siempre es necesario 
+}</code></pre>
+</div>
+
+
+<p>Veamos un ejemplo que nos va pintar en la consola qué elementos de una lista son pares.</p>
+
+
+ <div class="w3-card">
+<pre><code>&lt;script&gt;
+function esPar(x){
+   if(x%2==0){
+      return true;
+   }else{
+   return false;
+   }
+}
+const listaValores = [1,2,3,4,5,6,7,8,9,10];
+console.log("Los elementos pares de la lista de valores son:");
+for(let i=0;i&lt;listaValores.length;i++){
+   if(esPar(listaValores[i])){
+      console.log(listaValores[i].toString()+" es par.");
+   }
+}
+&lt;/script&gt;
+</code></pre>
+</div>
+
+<script>
+function esPar(x){
+	if(x%2==0){
+		return true;
+	}else{
+		return false;
+	}
+}
+const listaValores = [1,2,3,4,5,6,7,8,9,10];
+console.log("Los elementos pares de la lista de valores son:");
+for(let i=0;i<listaValores.length;i++){
+	if(esPar(listaValores[i])){
+		console.log(listaValores[i].toString()+" es par.");
+	}
+}
+</script>
+
+
+
+</div>
+
+ <div class="w3-panel w3-light-blue">
+<h3>Ejercicio propuesto</h3>
+</div>
+
+ <div class="w3-panel">
+<ol>
+<li>Crea una función que realice el método de la Bisección para
+encontrar soluciones a ecuaciones no lineales de la forma $f(x)=0$.</li>
+	<ol>
+		<li> La función debe tener el siguiente prototipo:
+		<i>Biseccion(f,a,b,n)</i> donde <i>f</i> es la función,
+		<i>a</i> es el valor inferior del intervalo,
+		<i>b</i> es el valor superior del intervalo y
+		<i>n</i> es el número de iteraciones que debe de realizar.</li>
+		<li> La función debe de comprobar que efectivamente en ese intervalo existe
+		una solución (simplemente comprobar que $f(a)f(b)&lt;0$, asumimos
+		que el usuario va a introducir una función continua).</li>
+		<li> La función debe de llamar a alguna otra función que hayas creado.</li>
+		<li> El código debe de estar comentado.</li>
+	</ol>
+</ol>
+
+<p>Se recomienda usar la consola para comprobar que el programa funcione.</p>
+</div>
+
+</body>
+</html>
