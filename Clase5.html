@@ -1,0 +1,304 @@
+ <!DOCTYPE html>
+  <html lang="es-ES">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./w3.css">
+  
+  <title> Matemáticas dinámicas</title>
+  
+  <style>
+  td {background-color: red; color:yellow;}
+  .bordeFino {border: 5px solid black;}
+  .bordeGrueso {border: 10px solid pink;}
+  </style>
+  
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+MathJax.Hub.Config({
+  TeX: {
+    Macros: {
+      R: "{\\mathbb R}",
+      N: "{\\mathbb N}",
+      Z: "{\\mathbb Z}",
+      bold: ["{\\bf #1}",1]
+    }
+  }
+});
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+TeX: {
+  extensions: ["AMSmath.js", "AMSsymbols.js", "color.js"]
+}
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML' async></script>
+  
+  
+  
+  
+  <body class="w3-sand">
+  
+ <div class="w3-panel w3-blue">
+  <h1> Matemáticas dinámicas. Curso 24/25</h1>
+</div>
+
+ <div class="w3-panel w3-blue">
+  <h2> 21 de Marzo</h2>
+</div>
+
+
+ <div class="w3-panel w3-light-blue">
+  <h3> JavaScript y HTML </h3>
+</div>
+
+ <div class="w3-panel">
+ 
+ <p> Veamos ahora como podemos relacionar todo lo que hemos visto hasta ahora.
+ Comenzamos creando una función que modifique un texto y la asignaremos a un botón.
+ Vamos a utilizar la eiqueta <strong>div</strong> que permite definir una
+ sección.</p>
+
+
+
+<div class="w3-card">
+  <pre><code>&lt;script&gt;
+function cambiaTexto(){
+   var d1=document.getElementById("div1");
+   d1.innerText="hola";
+}
+&lt;/script&gt;
+&lt;div class="w3-panel" id="div1"&gt; Este texto se va a modificar. &lt;/div&gt;
+&lt;button class="w3-button w3-white w3-border" onclick="cambiaTexto();"&gt;Modificador&lt;/button&gt;
+</code></pre>
+  </div>
+  
+ <script>
+function cambiaTexto(){
+  var d1=document.getElementById('div1');
+  d1.innerText='Hola mundo';
+}
+</script>
+<div class='w3-panel' id='div1'> Este texto se va a modificar. </div>
+<button class="w3-button w3-white w3-border" onclick='cambiaTexto();'>Modificador</button>
+ 
+
+ <p> Podemos hacer algo similar cogiendo un texto que ha escrito el usuario y
+ escribiéndolo en nuestra web. </p>
+ 
+ 
+ <div class="w3-card">
+  <pre><code>&lt;script&gt;
+function capturaTexto1(){
+   var d2=document.getElementById("div2");
+   var l2=document.getElementById("linea1");
+   d2.innerText=l2.value;
+}
+&lt;/script&gt;
+&lt;input type="text" class="w3-input w3-border" id="linea1"&gt;
+&lt;div class="w3-panel" id="div2"&gt;Este texto se va a modificar&lt;/div&gt;
+&lt;button class="w3-button w3-white w3-border" onclick="capturaTexto1();"&gt;Modificador&lt;/button&gt;</code></pre>
+  </div>
+ 
+ <script>
+function capturaTexto1(){
+  var d2=document.getElementById('div2');
+  var l2=document.getElementById('linea1');
+  d2.innerText=l2.value;
+}
+</script>
+<input type='text' class='w3-input w3-border' id='linea1'>
+<div class='w3-panel' id='div2'>Este texto se va a modificar</div>
+<button class="w3-button w3-white w3-border" onclick='capturaTexto1();'>Modificador</button>
+ 
+ 
+ <p>Con una pequeña variación podemos hacer que se muestren fórmulas. Podemos
+ escribir x^2 en el siguiente recuadro y el programa lo renderizará.</p>
+ 
+  <div class="w3-card">
+  <pre><code>&lt;script&gt;
+function capturaTexto2(){
+   var d2=document.getElementById("div3");
+   var l2=document.getElementById("linea2");
+   d2.innerText="$"+l2.value+"$";
+   MathJax.Hub.Queue(["Typeset",MathJax.Hub,"MathOutput"]);
+}
+&lt;/script&gt;
+&lt;input type="text" class="w3-input w3-border" id="linea2"&gt;
+&lt;div class="w3-panel" id="div3">Este texto se va a modificar&lt;/div&gt;
+&lt;button class="w3-button w3-white w3-border" onclick='capturaTexto2();'&gt;Modificador&lt;/button&gt;</code></pre>
+  </div>
+ 
+ 
+ <script>
+function capturaTexto2(){
+  var d2=document.getElementById('div3');
+  var l2=document.getElementById('linea2');
+  d2.innerText="$"+l2.value+"$";
+  MathJax.Hub.Queue(["Typeset",MathJax.Hub,"MathOutput"]);
+}
+</script>
+<input type='text' class='w3-input w3-border' id='linea2'>
+<div class='w3-panel' id='div3'>Este texto se va a modificar</div>
+<button class="w3-button w3-white w3-border" onclick='capturaTexto2();'>Modificador</button>
+ 
+ </div>
+
+
+ <div class="w3-panel w3-light-blue">
+  <h3> El lienzo </h3>
+</div>
+
+ <div class="w3-panel">
+ 
+ 
+ <p> En esta sección veremos un elemento nuevo, el lienzo. Este se define con la etiqueta
+ <strong>canvas</strong> y se modifica con JavaScript.</p> Veamos un ejemplo para dibujar un lienzo vacío.
+ 
+ 
+ <div class="w3-card">
+  <pre><code> &lt;canvas id="myCanvas" width="200" height="100"&gt;
+  
+&lt;/canvas&gt; </code></pre>
+ </div>
+ 
+ <canvas id="myCanvas" width="200" height="100"></canvas>
+ 
+ <p>Como vemos (o mejor dicho, no vemos) al no haber dibujado nada solamente tenemos
+ el espacio vacío del lienzo. Vamos ahora a dibujar ahora distintos elementos.</p>
+ 
+<div class="w3-card">
+  <pre><code>&lt;canvas id="myCanvas2" width="200" height="100"&gt;&lt;/canvas&gt;
+&lt;script&gt;
+  var c = document.getElementById("myCanvas2");
+  var ctx = c.getContext("2d");
+  ctx.moveTo(0, 0);
+  ctx.lineTo(200, 100);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+  ctx.stroke();
+  ctx.font = "30px Arial";
+  ctx.fillText("Hola mundo", 10, 50);
+  ctx.fillStyle = "#FFB6C1 ";
+  ctx.fillRect(0, 0, 50, 25);
+&lt;/script&gt;</code></pre>
+</div>
+ 
+ 
+ 
+<canvas id="myCanvas2" width="200" height="100"></canvas> 
+ <script>
+var c = document.getElementById("myCanvas2");
+var ctx = c.getContext("2d");
+ctx.moveTo(0, 0);
+ctx.lineTo(200, 100);
+ctx.stroke();
+ctx.beginPath();
+ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+ctx.stroke();
+ctx.font = "30px Arial";
+ctx.fillText("Hello World", 10, 50);
+ctx.fillStyle = "#FFB6C1 ";
+ctx.fillRect(0, 0, 50, 25);
+</script> 
+
+<p> Veamos como funciona este código.</p>
+
+<ul class="w3-ul w3-hoverable">
+  <li> <strong>var c = document.getElementById("myCanvas2");</strong> busca el canvas con
+identificador <i>myCanvas2</i> y lo almacena en la variable <i>c</i>. </li>
+  <li><strong> var ctx = c.getContext("2d"); </strong> devuelve un objeto del canvas
+  que contiene las funciones necesarias para pintar.</li>
+  <li><strong>ctx.moveTo(0, 0);</strong> crea el punto de inicio de una línea.</li>
+  <li><strong>ctx.lineTo(200, 100);</strong> crea el punto final de una línea.</li>
+  <li><strong>ctx.stroke();</strong> dibuja la línea.</li>
+  <li><strong>ctx.beginPath();</strong> indica que se va a dibujar un camino.</li>
+  <li><strong>ctx.arc(95, 50, 40, 0, 2 * Math.PI);</strong> dibuja un arco. Los dos primeros
+  valores son las coordenadas del centro, el siguiente el radio seguido de los valores iniciales
+  y finales del ángulo.</li>
+  <li><strong>ctx.stroke();</strong> dibuja la línea.</li>
+  <li><strong>ctx.font = "30px Arial";</strong> establece una fuente y un tamaño de letra.</li>
+  <li><strong>ctx.fillText("Hello World", 10, 50);</strong> escribe un texto en unas coordenadas.</li>
+  <li><strong>ctx.fillStyle = "#FFB6C1 ";</strong> establece un color de relleno.</li>
+  <li><strong>ctx.fillRect(0, 0, 50, 25);</strong> dibuja un rectánculo a partir de las coordenadas
+  de los vértices de la diagonal.</li>  
+</ul>
+
+ 
+ <p>El elemento <i>canvas</i> no es solo un elemento de salida, también es de entrada. En el siguiente
+ ejemplo captura las posición del ratón cuando hacemos click sobre él.</p>
+ 
+<div class="w3-card">
+  <pre><code>&lt;canvas id="myCanvas3" width="200" height="100" class='w3-border' onclick='muestraClick(event)'&gt;&lt;/canvas&gt;
+&lt;div id='clickdiv'&gt;&lt;/div&gt;
+&lt;script&gt;
+function muestraClick(event){
+  var dd=document.getElementById('clickdiv');
+  var cc=document.getElementById('myCanvas3');
+
+  var coordCanvas=cc.getBoundingClientRect();
+  var x=event.clientX-coordCanvas.x;
+  var y=event.clientY-coordCanvas.y;
+  dd.innerText=x+" "+y;
+}
+&lt;/script&gt;
+ 
+ </pre></code>
+ </div>
+ 
+ 
+ 
+ <canvas id="myCanvas3" width="200" height="100" class='w3-border' onclick='muestraClick(event)'></canvas>
+<div id='clickdiv'></div>
+<script>
+function muestraClick(event){
+  var dd=document.getElementById('clickdiv');
+  var cc=document.getElementById('myCanvas3');
+
+  var coordCanvas=cc.getBoundingClientRect();
+  var x=event.clientX-coordCanvas.x;
+  var y=event.clientY-coordCanvas.y;
+  dd.innerText=x+" "+y;
+}
+</script>
+ 
+
+
+ <div class="w3-panel w3-light-blue">
+<h3>Ejercicio propuesto</h3>
+</div>
+
+ <div class="w3-panel">
+<ol>
+<li> Crea un <i>canvas</i> y una función de forma que, a medida que el usuario haga click en él, se vaya dibujando una línea poligonal en el lienzo.</li>
+<li> Crea alguna funcionalidad que demuestre tu dominio de html y JavaScript.</li>
+</ol>
+
+<p> Se valorará la originalidad, la presentación y la complejidad. </p>
+
+
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
