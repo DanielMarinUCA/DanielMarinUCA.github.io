@@ -1,0 +1,266 @@
+ <!DOCTYPE html>
+  <html lang="es-ES">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./w3.css">
+  
+  <title> Matemáticas dinámicas</title>
+  
+  <style>
+  td {background-color: red; color:yellow;}
+  .bordeFino {border: 5px solid black;}
+  .bordeGrueso {border: 10px solid pink;}
+  </style>
+  
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+MathJax.Hub.Config({
+  TeX: {
+    Macros: {
+      R: "{\\mathbb R}",
+      N: "{\\mathbb N}",
+      Z: "{\\mathbb Z}",
+      bold: ["{\\bf #1}",1]
+    }
+  }
+});
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+TeX: {
+  extensions: ["AMSmath.js", "AMSsymbols.js", "color.js"]
+}
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML' async></script>
+  
+  <script src='https://algebra.js.org/javascripts/algebra-0.2.6.min.js'></script>
+  
+  
+  <body class="w3-sand">
+  
+ <div class="w3-panel w3-blue">
+  <h1> Matemáticas dinámicas. Curso 24/25</h1>
+</div>
+
+ <div class="w3-panel w3-blue">
+  <h2> 28 de Marzo</h2>
+</div>
+
+
+ <div class="w3-panel w3-light-blue">
+  <h3> Expresiones algebraicas </h3>
+</div>
+
+<p>En esta sección veremos como podemos manipular expresiones algebraicas. Para ello primero debemos de cargar la biblioteca <strong>algebra</strong>.</p>
+
+
+<div class="w3-card">
+  <pre><code>&lt;script src='https://algebra.js.org/javascripts/algebra-0.2.6.min.js' &gt;&lt;/script&gt;  </code></pre>
+</div>
+
+<p>Veamos un ejemplo de uso donde utilizaremos una función que nos permita evaluar
+una variable en un punto dado.</p>
+
+<div class="w3-card">
+  <pre><code>&lt;script&gt;
+function evalua(valorDeX,expresion){
+  var expr=algebra.parse(expresion);
+  var valor=expr.eval({x:valorDeX});
+  var vv=valor.constants[0].valueOf();
+  return vv;
+}
+&lt;/script&gt;
+&lt;div class='w3-panel w3-border' id='evalua'&gt;&lt;/div&gt;
+&lt;script&gt;
+var dd=document.getElementById('evalua');
+dd.innerText="Al sustituir 7 en $x^3+1$ obtenemos: "+evalua(7,"x^3+1")
+&lt;/script&gt; </code></pre>
+</div>
+
+
+
+<script>
+function evalua(valorDeX,expresion){
+  var expr=algebra.parse(expresion);
+  //var xx=algebra.parse(x+"");
+  var valor=expr.eval({x:valorDeX});
+  var vv=valor.constants[0].valueOf();
+  return vv;
+}
+</script>
+
+<div class='w3-panel w3-border' id='evalua'></div>
+<script>
+var dd=document.getElementById('evalua');
+dd.innerText="Al sustituir 7 en $x^3+1$ obtenemos: "+evalua(7,"x^3+1")
+</script>
+
+<p>Analicemos cada línea de la función.</p>
+
+<ul class="w3-ul w3-hoverable">
+	<li><strong>var expr=algebra.parse(expresion);</strong> permite interpretar la expresión
+	y almacena esta interpretación en <i>expr</i>.</li>
+	<li><strong>var valor=expr.eval({x:valorDeX});</strong> sustituye la x de la expresión
+	por <i>valorDeX</i>.</li>
+	<li><strong>var vv=valor.constants[0].valueOf();</strong> accede al valor numérico
+	que hemos calculado con anterioridad.</li>
+	<li><strong>return vv;</strong> devuelve el dicho valor.</li>
+</ul>
+
+<p>Veamos que más cosas podemos hacer. Para ello en primer lugar, definiremos estas
+variables con el fin de poder trabajar con fracciones, expresiones y ecuaciones
+de manera más cómoda.</p>
+
+
+<div class="w3-card">
+  <pre><code>&lt;script&gt;   
+   var Fraction = algebra.Fraction;
+   var Expression = algebra.Expression;
+   var Equation = algebra.Equation;
+&lt;/script&gt;  </code></pre>
+</div>
+
+
+<script>   
+   var Fraction = algebra.Fraction;
+   var Expression = algebra.Expression;
+   var Equation = algebra.Equation;
+</script>;
+
+<p>Los siguientes ejemplos son autoexplicativos y sacarán sus resultados por la consola.</p>
+
+ <div class="w3-panel w3-light-blue">
+  <h4> Fracciones </h4>
+</div>
+
+<div class="w3-card">
+  <pre><code>&lt;script&gt;
+   var frac = new Fraction(1, 2); // Define una fracción.
+   console.log(frac.toString());
+
+   frac = frac.add(new Fraction(3, 4)); // Suma fracciones.
+   console.log(frac.toString());
+
+   frac = frac.subtract(2); // Resta fracciones
+   console.log(frac.toString());
+
+   frac = frac.multiply(new Fraction(4, 3)); // Multiplica fracciones.
+   console.log(frac.toString());
+
+   frac = frac.divide(5); // Divide fracciones.
+   console.log(frac.toString());
+&lt;/script&gt;  </code></pre>
+</div>
+
+ <div class="w3-panel w3-light-blue">
+  <h4> Expresiones </h4>
+</div>
+
+<div class="w3-card">
+  <pre><code>&lt;script&gt;
+   var x = new Expression("x"); // Define una expresión.
+
+   x = x.add(3); // Le suma un valor.
+   console.log(x.toString());
+
+   x = x.subtract(new Fraction(1, 3)); //Le resta un valor.
+   console.log(x.toString());
+
+   x = x.add("y"); // Le suma una variable.
+   console.log(x.toString());
+
+   var otherExp = new Expression("x").add(6); // Define otra expresión.
+
+   x = x.add(otherExp); // Suma ambas expresiones en la primera.
+   console.log(x.toString());
+   
+   var expr1 = new Expression("x"); // Crea una nueva expresión
+   expr1 = expr1.add(2); // Le suma un valor.
+   expr1 = expr1.multiply(4); // Le multiplica un valor.
+
+   var expr2 = new Expression("x"); // Define otra expresión.
+   expr2 = expr2.multiply("y"); // La multiplica por una variable.
+   expr2 = expr2.multiply(new Fraction(1, 3)); // La multiplica por una fracción-
+   expr2 = expr2.add(4); // Le suma un valor.
+
+   var expr3 = expr1.multiply(expr2); // Multiplica ambas expresiones
+
+   console.log("(" + expr1.toString() + ")(" + expr2.toString() + ") = " + expr3.toString());
+
+   var exp = new Expression("x").add(2); // Define una expresión
+
+   var exp3 = exp.pow(3); // La eleva al cubo.
+
+   console.log("(" + exp.toString() + ")^3 = " + exp3.toString());
+&lt;/script&gt;  </code></pre>
+</div>
+
+
+
+<div class="w3-panel w3-light-blue">
+  <h4> Evaluación de expresiones </h4>
+</div>
+
+<div class="w3-card">
+  <pre><code>&lt;script&gt;
+   var expr = new Expression("x");
+   expr = expr.multiply(2);
+   expr = expr.multiply("x");
+   expr = expr.add("y");
+   expr = expr.add(new Fraction(1, 3));
+
+   console.log(expr.toString());
+
+   var answer1 = expr.eval({x: 2}); // Evalua una de las variables en un punto.
+   var answer2 = expr.eval({x: 2, y: new Fraction(3, 4)}); // Evalua ambas variables.
+
+   console.log(answer1.toString());
+   console.log(answer2.toString());
+&lt;/script&gt;  </code></pre>
+</div>
+
+
+<div class="w3-panel w3-light-blue">
+  <h4> Ecuaciones </h4>
+</div>
+
+<div class="w3-card">
+  <pre><code>&lt;script&gt;
+   var expr1=algebra.parse("x+1");
+   var expr2=algebra.parse("2*x-3");
+   var eq1=new Equation(expr1,expr2); // Definimos la ecuación expr1 = expr2.
+   console.log(eq1.toString());
+   var answer = eq1.solveFor("x"); // Resolvemos la ecuacion.
+   console.log(answer.toString());
+&lt;/script&gt;  </code></pre>
+</div>
+
+<script>
+var expr1=algebra.parse("x+1");
+   var expr2=algebra.parse("2*x-3");
+   var eq1=new Equation(expr1,expr2); // Definimos la ecuación expr1 = expr2.
+   console.log(eq1.toString());
+   var answer = eq1.solveFor("x"); // Resolvemos la ecuacion.
+   console.log(answer.toString());
+</script>
+
+ <div class="w3-panel w3-light-blue">
+<h3>Ejercicio propuesto</h3>
+</div>
+
+ <div class="w3-panel">
+<ol>
+<li> Crea un canvas que dibuje dos rectas a partir de los clicks del usuario y el punto de intersección</li>
+<li> Escribe un teorema y su demostración de forma que esta sea interactiva.</li>
+<li> Ejercicio libre.</li>
+</ol>
+
+<p> Se valorará la originalidad, la presentación y la complejidad. </p>
+
+</body>
+</html>
