@@ -34,8 +34,12 @@ HTML pondríamos </p>
 
 
  <div class="w3-card">
-<pre><code>&lt;script src="misFunciones.js"&gt;&lt;/script&gt;</code></pre>
+<pre><code>&lt;script src="misFunciones.js" defer&gt;&lt;/script&gt;</code></pre>
  </div>
+ 
+ <p> La palabra <i>defer</i> junto a un enlace a un archivo externo nos permite colocarlo en la cabecera
+y que se ejecute sin problemas ya que no ejecuta el archivo javascript hasta que no ha cargado el html.
+ En caso contrario, muy probablemente, debería estar al final. </p>
  
 <p> Veamos un ejemplo donde podemos escribir en una celda de una tabla
 utilizando código en JavaScript. Para ello en primer lugar tenemos que que ponerle
